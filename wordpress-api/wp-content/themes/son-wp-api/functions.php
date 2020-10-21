@@ -1,7 +1,7 @@
 <?php
 
 // carregando nossas rotas
-require_once (get_template_directory() . '/params/params.php');
+require_once (get_template_directory() . '/custom/params.php');
 require_once (get_template_directory() . '/api/resources/routes-courses.php');
 
 // registrando cpt

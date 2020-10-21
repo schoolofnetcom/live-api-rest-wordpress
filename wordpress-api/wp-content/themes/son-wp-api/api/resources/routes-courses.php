@@ -2,9 +2,9 @@
 
 function my_list_course_func($request) {
     $data = [
-        1 => 'PHP',
-        2 => 'JAVASCRIPT',
-        3 => 'PYTHON',
+        1 => 'WORDPRESS',
+        2 => 'LARAVEL',
+        3 => 'REACT',
     ];
     $response = new WP_REST_Response( $data );
     return rest_ensure_response($response);
@@ -12,9 +12,9 @@ function my_list_course_func($request) {
 
 function my_show_course_func($request) {
     $data = [
-        1 => 'PHP',
-        2 => 'JAVASCRIPT',
-        3 => 'PYTHON',
+        1 => 'WORDPRESS',
+        2 => 'LARAVEL',
+        3 => 'REACT',
     ];
 
     // $index = $request['id'];
@@ -32,9 +32,9 @@ function my_show_course_func($request) {
 
 function my_update_course_func($request) {
     $data = [
-        1 => 'PHP',
-        2 => 'JAVASCRIPT',
-        3 => 'PYTHON',
+        1 => 'WORDPRESS',
+        2 => 'LARAVEL',
+        3 => 'REACT',
     ];
 
     $index = $request->get_param('id');
@@ -53,9 +53,9 @@ function my_update_course_func($request) {
 
 function my_create_course_func($request) {
     $data = [
-        1 => 'PHP',
-        2 => 'JAVASCRIPT',
-        3 => 'PYTHON',
+        1 => 'WORDPRESS',
+        2 => 'LARAVEL',
+        3 => 'REACT',
     ];
 
     $newCourse = $request->get_json_params();
@@ -73,9 +73,9 @@ function my_create_course_func($request) {
 
 function my_delete_course_func($request) {
     $data = [
-        1 => 'PHP',
-        2 => 'JAVASCRIPT',
-        3 => 'PYTHON',
+        1 => 'WORDPRESS',
+        2 => 'LARAVEL',
+        3 => 'REACT',
     ];
 
     $id = $request->get_param('id');

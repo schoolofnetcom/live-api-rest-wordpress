@@ -12,7 +12,7 @@ jQuery(document).ready( function() {
             method: 'POST',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
-                xhr.setRequestHeader( 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGkiLCJpYXQiOjE2MDMzMTE3MzIsIm5iZiI6MTYwMzMxMTczMiwiZXhwIjoxNjAzOTE2NTMyLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.PWeKaqc6q4tgFoSSh5Oqko-9_pSS8PDHBGdR6R1kFXs' );
+                xhr.setRequestHeader( 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' );
             },
             data:{
                 'title' : 'Post from ajax',
@@ -32,7 +32,7 @@ jQuery(document).ready( function() {
             method: 'GET',
             headers: {  
                 'X-WP-Nonce': wpApiSettings.nonce,
-                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGkiLCJpYXQiOjE2MDMzMTE3MzIsIm5iZiI6MTYwMzMxMTczMiwiZXhwIjoxNjAzOTE2NTMyLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.PWeKaqc6q4tgFoSSh5Oqko-9_pSS8PDHBGdR6R1kFXs' 
+                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' 
             },
             success: function(response) {
                 console.log('success entered')
