@@ -4,8 +4,10 @@
 require_once (get_template_directory() . '/params/params.php');
 require_once (get_template_directory() . '/api/resources/routes-courses.php');
 
+// registrando cpt
+require_once (get_template_directory() . '/cpt/books.php');
 
-
+// INSERINDO OBJETO NO JAVASCRIPT PARA UTILIZAR
 function loadMyAssets() {
 
     wp_enqueue_script('theme-js', get_template_directory_uri() . '/js/theme.js', ['jquery'], '1.0', true);
@@ -21,6 +23,7 @@ function loadMyAssets() {
 add_action('wp_enqueue_scripts', 'loadMyAssets');
 
 
+// PROTEGENDO ROTAS PARA USUÁRIOS NÃO LOGADOS
 // add_filter( 'rest_authentication_errors', function( $result ) {
 
 //     if ( true === $result || is_wp_error( $result ) ) {
@@ -37,3 +40,19 @@ add_action('wp_enqueue_scripts', 'loadMyAssets');
 
 //     return $result;
 // });
+
+
+// FILTRO PARA ALTERAR CONFIGURAÇÕES DO POST
+// add_filter( 'register_post_type_args', 'my_post_type_args', 10, 2 ); 
+function my_post_type_args( $args, $post_type ) {
+ 
+    if ( 'book' === $post_type ) {
+        $args['show_in_rest'] = false;
+ 
+        // Optionally customize the rest_base or rest_controller_class
+        // $args['rest_base']             = 'books';
+        // $args['rest_controller_class'] = 'WP_REST_Posts_Controller';
+    }
+ 
+    return $args;
+}

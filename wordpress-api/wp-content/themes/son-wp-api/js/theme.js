@@ -6,12 +6,13 @@ jQuery(document).ready( function() {
 
     jQuery(".publish-post").click( function(e) {
         e.preventDefault(); 
-        console.log('create')
+
         jQuery.ajax({
             url: wpApiSettings.root + 'wp/v2/posts',
             method: 'POST',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
+                xhr.setRequestHeader( 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGkiLCJpYXQiOjE2MDMzMTE3MzIsIm5iZiI6MTYwMzMxMTczMiwiZXhwIjoxNjAzOTE2NTMyLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.PWeKaqc6q4tgFoSSh5Oqko-9_pSS8PDHBGdR6R1kFXs' );
             },
             data:{
                 'title' : 'Post from ajax',
@@ -25,18 +26,22 @@ jQuery(document).ready( function() {
 
      jQuery(".show-posts").click( function(e) {
         e.preventDefault(); 
-        console.log('show')
 
         jQuery.ajax({
             url: wpApiSettings.root + 'wp/v2/posts',
             method: 'GET',
-            beforeSend: function(xhr){
-                xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
+            headers: {  
+                'X-WP-Nonce': wpApiSettings.nonce,
+                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3RcL3dvcmRwcmVzcy1hcGkiLCJpYXQiOjE2MDMzMTE3MzIsIm5iZiI6MTYwMzMxMTczMiwiZXhwIjoxNjAzOTE2NTMyLCJkYXRhIjp7InVzZXIiOnsiaWQiOiIxIn19fQ.PWeKaqc6q4tgFoSSh5Oqko-9_pSS8PDHBGdR6R1kFXs' 
             },
-            }).done(function(response){
+            success: function(response) {
+                console.log('success entered')
                 updatePostList(response, false);
-                console.log( "lista atualizada" );
-            });
+            },
+            error: function(response) {
+                console.log(response);
+            }
+        });
  
      });
 
@@ -56,6 +61,7 @@ jQuery(document).ready( function() {
         posts.forEach(element => {
             jQuery("#api-paginas").append('<p>'+element.title.rendered+'</p>');
         });
+        console.log( "lista atualizada" );
     }
     }
 
