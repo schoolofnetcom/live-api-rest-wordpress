@@ -2,8 +2,6 @@
 
 jQuery(document).ready( function() {
 
-    jQuery("#api").html('Estamos prontos!!!');
-
     jQuery(".publish-post").click( function(e) {
         e.preventDefault(); 
 
@@ -12,10 +10,10 @@ jQuery(document).ready( function() {
             method: 'POST',
             beforeSend: function(xhr) {
                 xhr.setRequestHeader( 'X-WP-Nonce', wpApiSettings.nonce );
-                xhr.setRequestHeader( 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' );
+                // xhr.setRequestHeader( 'Authorization', 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' );
             },
             data:{
-                'title' : 'Post from ajax',
+                'title' : 'Post from ajax 1',
                 'status' : 'publish'
             }
         }).done( function ( response ) {
@@ -32,7 +30,7 @@ jQuery(document).ready( function() {
             method: 'GET',
             headers: {  
                 'X-WP-Nonce': wpApiSettings.nonce,
-                'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' 
+                // 'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg' 
             },
             success: function(response) {
                 console.log('success entered')
@@ -46,7 +44,7 @@ jQuery(document).ready( function() {
      });
 
     function updatePostList(posts, reload = false) {
-    jQuery("#api-paginas").html('');
+    jQuery("#api-posts").html('');
     if(reload) {
         jQuery.ajax({
             url: wpApiSettings.root + 'wp/v2/posts',
@@ -59,7 +57,7 @@ jQuery(document).ready( function() {
             });
     }else {
         posts.forEach(element => {
-            jQuery("#api-paginas").append('<p>'+element.title.rendered+'</p>');
+            jQuery("#api-posts").append('<p>'+element.title.rendered+'</p>');
         });
         console.log( "lista atualizada" );
     }

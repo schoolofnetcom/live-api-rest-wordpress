@@ -13,7 +13,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMCIsImlhdCI6MTYwMzMxMzg1NCwibmJmIjoxNjAzMzEzODU0LCJleHAiOjE2MDM5MTg2NTQsImRhdGEiOnsidXNlciI6eyJpZCI6IjEifX19._gNYbm5uuaQmuh-pvu3Z-bjiJ41GkF-EA_6gAC_e8lg';
+    const token = 'seu-token';
     const config = {
         headers: { Authorization: `Bearer ${token}` }
     };
@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <>
       <h1>Lista de posts</h1>
-      <button onClick={updatePostList} className='btn'>Listar usuários</button>
+      <button onClick={updatePostList} className='btn'>Atualizar posts</button>
       <ul>
         {
           posts.map(post => (

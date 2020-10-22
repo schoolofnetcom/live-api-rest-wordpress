@@ -12,7 +12,7 @@
 	<a href="#" class="show-posts">Mostrar posts</a><br><br><br>
 	<a href="#" class="publish-post">Publicar novo post</a>
 	
-	<div id="api-paginas"></div>
+	<div id="api-posts"></div>
 
 
 	<?php wp_footer(); ?>
